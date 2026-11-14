@@ -5,690 +5,700 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LN FUSION - Boutique Tendances</title>
-<meta name="description" content="LN FUSION : mode, sneakers, gaming et lifestyle.">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<meta name="description" content="LN FUSION : mode, sneakers, accessoires, gaming, maison et technologie.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --black:#171717;
-  --white:#fff;
-  --beige:#e9dfd0;
-  --cream:#f7f5f1;
-  --gray:#777;
+:root {
+ --black:#171717;
+ --beige:#e9dfd1;
+ --cream:#f8f6f2;
+ --white:#fff;
+ --grey:#777;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
 body{
-  margin:0;
-  font-family:Montserrat,Arial,sans-serif;
-  color:var(--black);
-  background:white;
+ margin:0;
+ font-family:Montserrat,Arial,sans-serif;
+ background:var(--cream);
+ color:var(--black);
 }
-button,input{font-family:inherit}
+button,input,select{font:inherit}
 button{cursor:pointer}
-a{text-decoration:none;color:inherit}
-
-.topbar{
-  background:var(--black);
-  color:white;
-  text-align:center;
-  padding:10px;
-  font-size:10px;
-  letter-spacing:2px;
-  font-weight:800;
-}
 header{
-  position:sticky;
-  top:0;
-  z-index:20;
-  background:white;
-  border-bottom:1px solid #eee;
-  padding:14px 5%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
+ background:white;
+ position:sticky;
+ top:0;
+ z-index:10;
+ box-shadow:0 2px 12px #00000012;
+}
+.top{
+ max-width:1200px;
+ margin:auto;
+ padding:15px 20px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:12px;
 }
 .logo{
-  font-size:25px;
-  font-weight:900;
-  letter-spacing:-1.5px;
-  white-space:nowrap;
+ font-size:25px;
+ font-weight:800;
+ letter-spacing:2px;
 }
-.logo span{color:#a18b6d}
-.logo small{
-  display:block;
-  font-size:8px;
-  letter-spacing:4px;
-  text-align:center;
+.logo span{
+ display:block;
+ font-size:9px;
+ letter-spacing:5px;
+ font-weight:500;
+ text-align:center;
+ margin-top:3px;
 }
-nav{display:flex;gap:18px;align-items:center}
-nav a{
-  font-size:10px;
-  font-weight:900;
-  text-transform:uppercase;
+.actions{display:flex;gap:8px;align-items:center}
+.btn{
+ border:0;
+ background:var(--black);
+ color:white;
+ padding:11px 15px;
+ border-radius:5px;
+ font-weight:600;
 }
-nav a:hover{color:#a18b6d}
-.header-actions{display:flex;gap:8px;align-items:center}
-.search-mini{
-  width:130px;
-  min-width:0;
-  padding:11px 13px;
-  border:1px solid #ddd;
-  border-radius:30px;
-  outline:none;
+.btn.light{background:var(--beige);color:var(--black)}
+nav{
+ display:flex;
+ gap:9px;
+ overflow-x:auto;
+ padding:0 15px 13px;
+ max-width:1200px;
+ margin:auto;
 }
-.cart-btn,.login-btn{
-  border:0;
-  padding:12px 14px;
-  border-radius:30px;
-  font-size:10px;
-  font-weight:900;
-  white-space:nowrap;
+nav button{
+ white-space:nowrap;
+ border:1px solid #ddd;
+ background:white;
+ border-radius:30px;
+ padding:9px 14px;
+ font-size:12px;
 }
-.cart-btn{background:var(--black);color:white}
-.login-btn{background:var(--beige);color:var(--black)}
-
+nav button.active,nav button:hover{
+ background:var(--black);
+ color:white;
+ border-color:var(--black);
+}
 .hero{
-  margin:20px 4%;
-  min-height:440px;
-  border-radius:12px;
-  overflow:hidden;
-  background:
-    linear-gradient(90deg,#000c,#0002),
-    url("https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1600") center/cover;
-  display:flex;
-  align-items:center;
-  padding:7%;
-  color:white;
-}
-.hero-content{max-width:570px}
-.tag{
-  display:inline-block;
-  background:var(--beige);
-  color:#222;
-  padding:9px 14px;
-  font-size:10px;
-  font-weight:900;
-  letter-spacing:2px;
-  border-radius:30px;
+ background:linear-gradient(110deg,#171717,#49433d);
+ color:white;
+ padding:65px 22px;
+ text-align:center;
 }
 .hero h1{
-  font-size:clamp(43px,7vw,78px);
-  line-height:.98;
-  letter-spacing:-4px;
-  margin:22px 0;
-  font-weight:900;
+ font-size:clamp(32px,6vw,57px);
+ margin:0 0 12px;
+ letter-spacing:3px;
 }
-.hero p{font-size:13px;line-height:1.8;color:#eee}
-.main-btn{
-  display:inline-block;
-  margin-top:15px;
-  background:white;
-  color:#111;
-  border:0;
-  padding:15px 23px;
-  border-radius:30px;
-  font-size:10px;
-  font-weight:900;
+.hero p{color:#e7dfd5;font-size:14px}
+.hero button{
+ margin-top:15px;
+ background:var(--beige);
+ color:var(--black);
+ border:0;
+ padding:13px 22px;
+ border-radius:4px;
+ font-weight:700;
 }
-section{padding:55px 6%}
-.section-head{text-align:center;margin-bottom:27px}
-.section-head small,.eyebrow{
-  color:#a18b6d;
-  font-weight:900;
-  letter-spacing:3px;
-  font-size:10px;
+main{
+ max-width:1200px;
+ margin:35px auto;
+ padding:0 18px;
 }
-.section-head h2{
-  font-size:clamp(28px,4vw,40px);
-  letter-spacing:-1.5px;
-  font-weight:900;
-  margin:9px 0;
+.heading{text-align:center;margin:35px 0 22px}
+.heading h2{font-size:25px;margin-bottom:7px}
+.heading p{color:var(--grey);font-size:13px}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
+.tools input{
+ flex:1;
+ min-width:190px;
+ padding:13px;
+ border:1px solid #ddd;
+ border-radius:5px;
+ background:white;
 }
-.section-head p{font-size:11px;color:var(--gray)}
-
-.categories{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:14px;
+.tools select{
+ padding:13px;
+ border:1px solid #ddd;
+ border-radius:5px;
+ background:white;
 }
-.category{
-  position:relative;
-  height:190px;
-  border-radius:9px;
-  overflow:hidden;
-  background:#ddd;
-  cursor:pointer;
-}
-.category img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:.3s;
-}
-.category:hover img{transform:scale(1.06)}
-.category:after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(transparent,#0009);
-}
-.category span{
-  position:absolute;
-  z-index:2;
-  bottom:15px;
-  left:14px;
-  color:white;
-  font-size:13px;
-  font-weight:900;
-}
-.banner{
-  margin:15px 5%;
-  padding:48px 20px;
-  text-align:center;
-  background:var(--beige);
-  border-radius:10px;
-}
-.banner h2{
-  font-size:clamp(28px,5vw,44px);
-  margin:10px 0;
-  font-weight:900;
-}
-.banner p{font-size:12px}
-
-.search-section{
-  background:var(--cream);
-  padding-top:42px;
-  padding-bottom:42px;
-}
-.search-area{
-  display:flex;
-  gap:10px;
-  max-width:650px;
-  margin:20px auto 0;
-}
-.search-area input{
-  flex:1;
-  min-width:0;
-  border:1px solid #ddd;
-  border-radius:30px;
-  padding:15px 19px;
-  font-size:12px;
-  outline:none;
-}
-.search-area button{
-  background:var(--black);
-  color:white;
-  border:0;
-  padding:0 23px;
-  border-radius:30px;
-  font-size:10px;
-  font-weight:900;
-}
-.filters{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  justify-content:center;
-  margin-bottom:25px;
-}
-.filters button{
-  border:1px solid #ddd;
-  background:white;
-  padding:10px 15px;
-  border-radius:30px;
-  font-size:10px;
-  font-weight:800;
-}
-.filters button.active,.filters button:hover{
-  background:var(--black);
-  color:white;
-  border-color:var(--black);
-}
-.products{
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:19px;
+.grid{
+ display:grid;
+ grid-template-columns:repeat(4,minmax(0,1fr));
+ gap:17px;
 }
 .product{
-  background:white;
-  border:1px solid #eee;
-  border-radius:9px;
-  overflow:hidden;
-  transition:.2s;
-}
-.product:hover{
-  transform:translateY(-3px);
-  box-shadow:0 8px 25px #0000000d;
+ background:white;
+ border-radius:7px;
+ overflow:hidden;
+ box-shadow:0 3px 15px #0000000b;
 }
 .product img{
-  width:100%;
-  height:230px;
-  object-fit:cover;
-  cursor:pointer;
-  background:#f2f2f2;
-  display:block;
+ width:100%;
+ height:220px;
+ object-fit:cover;
+ background:#eee;
+ display:block;
 }
 .product-info{padding:13px}
-.product-info small{
-  color:#a18b6d;
-  font-size:9px;
-  letter-spacing:1px;
-  font-weight:900;
+.product-info h3{font-size:14px;margin:10px 0 7px}
+.product-info p{
+ font-size:11px;
+ color:var(--grey);
+ line-height:1.5;
+ min-height:32px;
 }
-.product-info h3{
-  font-size:13px;
-  margin:8px 0;
-  min-height:30px;
+.price{font-weight:800;font-size:15px;margin:10px 0}
+.product-info button{
+ width:100%;
+ border:0;
+ background:var(--black);
+ color:white;
+ padding:11px;
+ border-radius:4px;
+ font-size:12px;
+ font-weight:700;
 }
-.price{font-weight:900;font-size:16px}
-.add,.details-btn{
-  width:100%;
-  padding:11px;
-  margin-top:9px;
-  border-radius:5px;
-  font-size:10px;
-  font-weight:900;
+.tag{
+ font-size:9px;
+ background:var(--beige);
+ padding:5px 8px;
+ border-radius:20px;
 }
-.add{
-  background:var(--black);
-  border:1px solid var(--black);
-  color:white;
-}
-.details-btn{
-  background:white;
-  border:1px solid #ddd;
-  color:#222;
-}
-.empty{
-  grid-column:1/-1;
-  text-align:center;
-  color:#777;
-  padding:30px;
-}
-
-/* PANIER */
-#cart-panel{
-  position:fixed;
-  right:0;
-  top:0;
-  height:100%;
-  width:min(370px,92%);
-  background:white;
-  z-index:60;
-  padding:23px;
-  box-shadow:0 0 40px #0003;
-  transform:translateX(110%);
-  transition:.3s;
-  overflow:auto;
-}
-#cart-panel.open{transform:translateX(0)}
-#cart-panel h2{font-size:25px}
-.close-cart{
-  padding:10px 14px;
-  background:var(--black);
-  color:white;
-  border:0;
-  border-radius:5px;
-}
-.cart-line{
-  padding:13px 0;
-  border-bottom:1px solid #eee;
-  font-size:12px;
-  display:flex;
-  justify-content:space-between;
-  gap:8px;
-  align-items:center;
-}
-.cart-line button{
-  border:0;
-  background:var(--beige);
-  padding:7px;
-  border-radius:5px;
-  font-size:10px;
-}
-#total{font-weight:900}
-
-/* DESCRIPTION */
-#product-modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  z-index:70;
-  background:#000b;
-  align-items:center;
-  justify-content:center;
-  padding:18px;
-}
-#product-modal.open{display:flex}
-.modal-card{
-  width:min(520px,100%);
-  max-height:90vh;
-  overflow:auto;
-  background:white;
-  border-radius:12px;
-  padding:18px;
-}
-.modal-card img{
-  width:100%;
-  height:260px;
-  object-fit:cover;
-  border-radius:8px;
-}
-.modal-card h2{font-size:25px}
-.modal-card p{font-size:13px;line-height:1.8;color:#555}
-.modal-close{
-  background:var(--black);
-  color:white;
-  border:0;
-  border-radius:5px;
-  padding:11px 15px;
-  margin-top:10px;
-}
-
-/* CONNEXION */
-.auth-overlay{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:#000b;
-  z-index:100;
-  align-items:center;
-  justify-content:center;
-  padding:18px;
-}
-.auth-overlay.open{display:flex}
-.auth-box{
-  width:min(420px,100%);
-  background:white;
-  color:#171717;
-  padding:27px;
-  border-radius:14px;
-  position:relative;
-  max-height:92vh;
-  overflow:auto;
-}
-.auth-box h2{font-size:27px;margin:15px 0 5px}
-.auth-box>p{font-size:11px;color:#777}
-.auth-close{
-  position:absolute;
-  right:15px;
-  top:14px;
-  background:none;
-  border:0;
-  font-size:21px;
-}
-.auth-switch{display:flex;gap:8px;margin:20px 0}
-.auth-switch button{
-  flex:1;
-  padding:11px;
-  border:1px solid #ddd;
-  background:white;
-  border-radius:7px;
-  font-size:10px;
-  font-weight:900;
-}
-.auth-switch button.active{
-  background:var(--beige);
-  border-color:#171717;
-}
-.auth-box input{
-  width:100%;
-  padding:13px;
-  border:1px solid #ddd;
-  border-radius:7px;
-  margin:7px 0;
-  outline:none;
-  font-size:12px;
-}
-.auth-submit{
-  width:100%;
-  padding:14px;
-  margin-top:12px;
-  background:var(--black);
-  color:white;
-  border:0;
-  border-radius:7px;
-  font-weight:900;
-}
-.password-help{font-size:10px;line-height:1.7;color:#777;margin:8px 0}
-#password-strength{
-  height:6px;
-  background:#eee;
-  border-radius:10px;
-  overflow:hidden;
-  margin:7px 0;
-}
-#strength-bar{
-  display:block;
-  height:100%;
-  width:0;
-  background:#a18b6d;
-  transition:.2s;
-}
-#auth-message{font-size:11px;font-weight:700;line-height:1.5}
-
 footer{
-  text-align:center;
-  padding:35px 15px;
-  border-top:1px solid #eee;
-  color:#777;
-  font-size:10px;
+ background:var(--black);
+ color:white;
+ text-align:center;
+ padding:30px 15px;
+ margin-top:55px;
+ font-size:12px;
 }
-footer strong{font-size:23px;color:#171717;letter-spacing:2px}
-
-@media(max-width:900px){
-  header{flex-wrap:wrap}
-  nav{order:3;width:100%;justify-content:center}
-  .products{grid-template-columns:repeat(3,minmax(0,1fr))}
+footer p{color:#ccc}
+.modal{
+ display:none;
+ position:fixed;
+ inset:0;
+ background:#0009;
+ z-index:30;
+ align-items:center;
+ justify-content:center;
+ padding:15px;
+}
+.modal.show{display:flex}
+.panel{
+ background:white;
+ width:100%;
+ max-width:480px;
+ max-height:90vh;
+ overflow:auto;
+ padding:22px;
+ border-radius:8px;
+ position:relative;
+}
+.close{
+ position:absolute;
+ right:15px;
+ top:12px;
+ border:0;
+ background:#eee;
+ border-radius:50%;
+ width:32px;
+ height:32px;
+ font-size:19px;
+}
+.panel h2{font-size:20px;margin:5px 35px 15px 0}
+.panel img{
+ width:100%;
+ height:190px;
+ object-fit:cover;
+ border-radius:5px;
+}
+.panel label{
+ display:block;
+ font-size:12px;
+ font-weight:700;
+ margin:15px 0 7px;
+}
+.panel select,.panel input{
+ width:100%;
+ padding:12px;
+ border:1px solid #ccc;
+ border-radius:4px;
+ background:white;
+}
+.panel .btn{width:100%;margin-top:12px}
+#cartItems{font-size:13px}
+.cart-item{
+ border-bottom:1px solid #ddd;
+ padding:12px 0;
+ display:flex;
+ justify-content:space-between;
+ gap:10px;
+ align-items:center;
+}
+.cart-item button{
+ border:0;
+ background:#eee;
+ padding:5px 8px;
+ border-radius:4px;
+}
+.empty{text-align:center;color:var(--grey);padding:20px}
+.total{font-weight:800;text-align:right;margin-top:18px}
+.note{font-size:11px;color:var(--grey);line-height:1.6}
+@media(max-width:850px){
+ .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
 @media(max-width:600px){
-  header{padding:12px 4%;gap:10px}
-  .logo{font-size:22px}
-  nav{gap:13px}
-  nav a{font-size:9px}
-  .header-actions{width:100%;justify-content:center}
-  .search-mini{flex:1;max-width:220px}
-  .hero{min-height:360px;padding:35px 7%;margin:12px 3%}
-  .hero h1{letter-spacing:-2px}
-  section{padding:40px 5%}
-  .categories{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .category{height:145px}
-  .products{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
-  .product img{height:170px}
-  .product-info{padding:10px}
-  .product-info h3{font-size:11px}
-  .price{font-size:14px}
-  .search-area button{padding:0 15px}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .product img{height:165px}
+ .product-info{padding:10px}
+ .product-info h3{font-size:12px}
+ .logo{font-size:20px}
+ .top{padding:12px}
+ .btn{padding:10px;font-size:11px}
+ .hero{padding:48px 15px}
+}
+@media(max-width:350px){
+ .grid{grid-template-columns:1fr}
+ .product img{height:220px}
 }
 </style>
 </head>
 
 <body>
 
-<div class="topbar">
-  BIENVENUE CHEZ LN FUSION — LE STYLE À PORTÉE DE MAIN
-</div>
-
 <header>
-  <a href="#accueil">
-    <div class="logo">LN <span>FUSION</span>
-      <small>BOUTIQUE TENDANCES</small>
-    </div>
-  </a>
-
-  <nav>
-    <a href="#accueil">Accueil</a>
-    <a href="#univers">Catégories</a>
-    <a href="#boutique">Boutique</a>
-    <a href="#nouveautes">Nouveautés</a>
-  </nav>
-
-  <div class="header-actions">
-    <input class="search-mini" id="search-top" placeholder="Rechercher...">
-    <button type="button" class="login-btn" onclick="openLogin()">LOG IN</button>
-    <button type="button" class="cart-btn" onclick="toggleCart()">
-      PANIER (<span id="count">0</span>)
-    </button>
+ <div class="top">
+  <div class="logo">LN FUSION<span>BOUTIQUE TENDANCES</span></div>
+  <div class="actions">
+   <button class="btn light" onclick="openLogin()">LOG IN</button>
+   <button class="btn" onclick="openCart()">PANIER <span id="cartCount">0</span></button>
   </div>
+ </div>
+
+ <nav id="categories">
+  <button class="active" data-category="Tous">Tout</button>
+  <button data-category="Mode homme">Mode homme</button>
+  <button data-category="Mode femme">Mode femme</button>
+  <button data-category="Sneakers">Sneakers</button>
+  <button data-category="Accessoires">Accessoires</button>
+  <button data-category="Gaming">Gaming</button>
+  <button data-category="Chambre">Chambre</button>
+  <button data-category="Maison">Maison</button>
+  <button data-category="Beauté">Beauté</button>
+  <button data-category="Technologie">Technologie</button>
+ </nav>
 </header>
 
-<main>
-<div class="hero" id="accueil">
-  <div class="hero-content">
-    <span class="tag">LN FUSION — NOUVELLE COLLECTION</span>
-    <h1>LE STYLE<br>COMMENCE ICI.</h1>
-    <p>
-      Découvre les tendances du moment : vêtements, sneakers,
-      gaming, accessoires, technologie et décoration.
-    </p>
-    <button class="main-btn" onclick="goToShop()">DÉCOUVRIR LA BOUTIQUE</button>
-  </div>
-</div>
-
-<section id="univers">
-  <div class="section-head">
-    <small>EXPLORE NOS UNIVERS</small>
-    <h2>Les catégories</h2>
-    <p>Trouve ton prochain coup de cœur.</p>
-  </div>
-  <div class="categories" id="categories"></div>
+<section class="hero">
+ <h1>LN FUSION</h1>
+ <p>Le style. La tendance. Ta personnalité.</p>
+ <button onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">
+  DÉCOUVRIR LA COLLECTION
+ </button>
 </section>
 
-<div class="banner" id="nouveautes">
-  <small class="eyebrow">LA SÉLECTION LN FUSION</small>
-  <h2>Les tendances du moment.</h2>
-  <p>Des nouveautés pour tous les styles et tous les univers.</p>
-  <button class="main-btn" style="background:#171717;color:white"
-    onclick="goToShop()">VOIR LES PRODUITS</button>
-</div>
+<main id="shop">
+ <div class="heading">
+  <h2>Notre sélection</h2>
+  <p>Découvre les nouveautés et les collections LN FUSION.</p>
+ </div>
 
-<section class="search-section">
-  <div class="section-head">
-    <small>RECHERCHE LN FUSION</small>
-    <h2>Qu'est-ce qui te ferait plaisir ?</h2>
-    <p>Recherche un produit par son nom ou sa catégorie.</p>
-  </div>
-  <div class="search-area">
-    <input id="search-main" placeholder="Exemple : sneakers, sweat, casque...">
-    <button onclick="searchFromMain()">RECHERCHER</button>
-  </div>
-</section>
+ <div class="tools">
+  <input id="search" type="search" placeholder="Rechercher un produit..." aria-label="Rechercher un produit">
+  <select id="sort" aria-label="Trier les produits">
+   <option value="default">Trier les produits</option>
+   <option value="low">Prix croissant</option>
+   <option value="high">Prix décroissant</option>
+   <option value="az">Nom A-Z</option>
+  </select>
+ </div>
 
-<section id="boutique">
-  <div class="section-head">
-    <small>LA BOUTIQUE LN FUSION</small>
-    <h2>Découvre nos produits</h2>
-    <p>Appuie sur un article pour découvrir sa description.</p>
-  </div>
-  <div class="filters" id="filters"></div>
-  <div class="products" id="products"></div>
-</section>
+ <div class="grid" id="products"></div>
+ <p id="noProducts" class="empty" hidden>Aucun produit trouvé.</p>
 </main>
 
-<!-- PANIER -->
-<div id="cart-panel">
-  <button class="close-cart" onclick="toggleCart()">FERMER ✕</button>
-  <h2>Mon panier</h2>
-  <div id="cart-items"></div>
-  <h3>Total : <span id="total">0,00</span> €</h3>
-  <p style="font-size:10px;color:#888;line-height:1.6">
-    Boutique de démonstration : aucun paiement réel n'est effectué.
-  </p>
+<footer>
+ <div class="logo">LN FUSION</div>
+ <p>La boutique des tendances.</p>
+ <p>© 2026 LN FUSION - Tous droits réservés</p>
+</footer>
+
+<!-- FENÊTRE PRODUIT -->
+<div class="modal" id="productModal" onclick="outsideClose(event,'productModal')">
+ <div class="panel">
+  <button class="close" onclick="closeModal('productModal')">×</button>
+  <div id="productDetails"></div>
+ </div>
 </div>
 
-<!-- DESCRIPTION -->
-<div id="product-modal" onclick="if(event.target===this)closeProduct()">
-  <div class="modal-card">
-    <div id="product-modal-content"></div>
-    <button class="modal-close" onclick="closeProduct()">FERMER ✕</button>
-  </div>
+<!-- PANIER -->
+<div class="modal" id="cartModal" onclick="outsideClose(event,'cartModal')">
+ <div class="panel">
+  <button class="close" onclick="closeModal('cartModal')">×</button>
+  <h2>Mon panier</h2>
+  <div id="cartItems"></div>
+  <div class="total" id="cartTotal"></div>
+  <p class="note">Boutique de démonstration : aucun paiement réel n'est effectué.</p>
+  <button class="btn light" onclick="clearCart()">Vider le panier</button>
+ </div>
 </div>
 
 <!-- CONNEXION -->
-<div class="auth-overlay" id="auth-overlay"
-  onclick="if(event.target===this)closeLogin()">
-  <div class="auth-box">
-    <button class="auth-close" onclick="closeLogin()">✕</button>
-    <div class="logo">LN <span>FUSION</span></div>
-    <h2 id="auth-title">Bienvenue !</h2>
-    <p>Connecte-toi à ton espace LN FUSION.</p>
+<div class="modal" id="loginModal" onclick="outsideClose(event,'loginModal')">
+ <div class="panel">
+  <button class="close" onclick="closeModal('loginModal')">×</button>
+  <h2>Bienvenue chez LN FUSION</h2>
 
-    <div class="auth-switch">
-      <button id="login-tab" class="active" onclick="switchAuth('login')">SE CONNECTER</button>
-      <button id="register-tab" onclick="switchAuth('register')">CRÉER UN COMPTE</button>
-    </div>
+  <div id="loginContent">
+   <label for="email">Adresse e-mail</label>
+   <input id="email" type="email" placeholder="exemple@email.com">
 
-    <form id="auth-form">
-      <input id="auth-name" type="text" placeholder="Ton nom d'utilisateur"
-        minlength="3" maxlength="25" autocomplete="username" required>
-      <input id="auth-password" type="password" placeholder="Ton mot de passe"
-        autocomplete="current-password" required>
+   <label for="password">Mot de passe</label>
+   <input id="password" type="password" placeholder="Ton mot de passe">
 
-      <div id="confirm-area" style="display:none">
-        <input id="auth-confirm" type="password"
-          placeholder="Confirmer ton mot de passe" autocomplete="new-password">
-        <div class="password-help">
-          12 caractères minimum, une majuscule, une minuscule,
-          un chiffre et un caractère spécial.
-        </div>
-        <div id="password-strength"><span id="strength-bar"></span></div>
-        <div id="strength-text" class="password-help">Solidité du mot de passe : non vérifiée</div>
-      </div>
-
-      <button class="auth-submit" id="auth-submit" type="submit">SE CONNECTER</button>
-    </form>
-
-    <p id="auth-message"></p>
-    <p style="font-size:9px;color:#999">
-      Démonstration uniquement : aucun vrai compte n'est créé
-      et aucun mot de passe n'est enregistré.
-    </p>
+   <button class="btn" onclick="demoLogin()">Se connecter</button>
+   <button class="btn light" onclick="showRegister()">Créer un compte</button>
   </div>
+
+  <p class="note">
+   Connexion de démonstration uniquement. Ne saisis pas de vrai mot de passe.
+   Ce site n'a pas encore de système de comptes sécurisé.
+  </p>
+ </div>
 </div>
 
-<footer>
-  <strong>LN FUSION</strong>
-  <p>BOUTIQUE TENDANCES · MODE · GAMING · LIFESTYLE</p>
-  <p>© 2026 LN FUSION — Boutique de démonstration.</p>
-</footer>
-
 <script>
-/* PRODUITS */
+"use strict";
+
+/* LISTE DES PRODUITS */
+
 const products = [
-  {name:"T-shirt LN Fusion",category:"Mode homme",price:24.90,image:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=700",description:"Un t-shirt au style minimaliste, facile à associer avec un jean ou un pantalon casual."},
-  {name:"Sweat LN Fusion",category:"Mode homme",price:44.90,image:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=700",description:"Un sweat au style urbain et décontracté."},
-  {name:"Veste urbaine",category:"Mode homme",price:59.90,image:"https://images.unsplash.com/photo-1551028719-00167b16eac5?w=700",description:"Une veste inspirée du streetwear."},
-  {name:"Hoodie Premium",category:"Mode homme",price:49.90,image:"https://images.unsplash.com/photo-1578681994506-b8f463449011?w=700",description:"Un hoodie moderne pour un style décontracté."},
-  {name:"Jean baggy",category:"Mode homme",price:42.90,image:"https://images.unsplash.com/photo-1542272604-787c3835535d?w=700",description:"Un jean à la coupe ample inspiré de la mode urbaine."},
-  {name:"Polo classique",category:"Mode homme",price:29.90,image:"https://images.unsplash.com/photo-1625910513413-5fc6c3f3b8d1?w=700",description:"Un polo au style simple pour une tenue casual."},
+ {id:1,name:"Hoodie LN FUSION",cat:"Mode homme",price:39.99,desc:"Sweat à capuche au style urbain avec identité LN FUSION.",img:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=700",colors:["Noir","Blanc","Beige","Gris","Violet"],sizes:["XS","S","M","L","XL","XXL"],new:true},
+ {id:2,name:"T-shirt LN FUSION",cat:"Mode homme",price:19.99,desc:"T-shirt confortable pour un look simple et tendance.",img:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=700",colors:["Noir","Blanc","Beige","Violet","Marron"],sizes:["XS","S","M","L","XL","XXL"]},
+ {id:3,name:"Jogging LN FUSION",cat:"Mode homme",price:34.99,desc:"Jogging décontracté pour un style streetwear.",img:"https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=700",colors:["Noir","Gris","Beige","Violet"],sizes:["XS","S","M","L","XL","XXL"]},
+ {id:4,name:"Veste LN FUSION",cat:"Mode homme",price:54.99,desc:"Veste moderne pour compléter ta tenue.",img:"https://images.unsplash.com/photo-1551028719-00167b16eac5?w=700",colors:["Noir","Beige","Marron","Gris"],sizes:["XS","S","M","L","XL","XXL"],new:true},
+ {id:5,name:"Casquette LN FUSION",cat:"Accessoires",price:17.99,desc:"Casquette au design minimaliste.",img:"https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=700",colors:["Noir","Blanc","Beige","Violet"],sizes:["Taille unique"]},
+ {id:6,name:"Collection Butterfly",cat:"Mode femme",price:29.99,desc:"Une pièce inspirée par l'univers Butterfly.",img:"https://images.unsplash.com/photo-1483985988355-763728e1935b?w=700",colors:["Noir","Blanc","Rose","Violet"],sizes:["XS","S","M","L","XL"]},
+ {id:7,name:"Collection Stars",cat:"Mode femme",price:29.99,desc:"Un style inspiré des étoiles et des tendances.",img:"https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=700",colors:["Noir","Blanc","Beige","Rose"],sizes:["XS","S","M","L","XL"]},
+ {id:8,name:"Collection Spider",cat:"Mode homme",price:32.99,desc:"Une collection au style graphique.",img:"https://images.unsplash.com/photo-1523398002811-999ca8dec234?w=700",colors:["Noir","Blanc","Rouge"],sizes:["XS","S","M","L","XL","XXL"]},
+ {id:9,name:"Collection Flames",cat:"Mode homme",price:32.99,desc:"Une collection au caractère affirmé.",img:"https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=700",colors:["Noir","Blanc","Rouge","Violet"],sizes:["XS","S","M","L","XL","XXL"]},
+ {id:10,name:"Collection Planet",cat:"Mode femme",price:32.99,desc:"Un univers inspiré des planètes.",img:"https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?w=700",colors:["Noir","Blanc","Bleu","Violet"],sizes:["XS","S","M","L","XL"]},
+ {id:11,name:"Collection Abstract",cat:"Mode homme",price:32.99,desc:"Des motifs originaux pour un look différent.",img:"https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=700",colors:["Noir","Blanc","Beige","Marron"],sizes:["XS","S","M","L","XL","XXL"]},
+ {id:12,name:"Sneakers Street",cat:"Sneakers",price:69.99,desc:"Sneakers au look urbain pour tous les jours.",img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=700",colors:["Noir","Blanc","Rouge"],sizes:["36","37","38","39","40","41","42","43","44","45"],new:true},
+ {id:13,name:"Sneakers Classic",cat:"Sneakers",price:59.99,desc:"Une paire classique et facile à assortir.",img:"https://images.unsplash.com/photo-1549298916-b41d501d3772?w=700",colors:["Blanc","Noir","Beige"],sizes:["36","37","38","39","40","41","42","43","44","45"]},
+ {id:14,name:"Sac tendance",cat:"Accessoires",price:24.99,desc:"Sac pratique pour accompagner tes sorties.",img:"https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=700",colors:["Noir","Beige","Marron","Blanc"],sizes:["Taille unique"],new:true},
+ {id:15,name:"Montre élégante",cat:"Accessoires",price:34.99,desc:"Une montre au design sobre et moderne.",img:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=700",colors:["Noir","Argent","Or"],sizes:["Taille unique"]},
+ {id:16,name:"Casque Gaming",cat:"Gaming",price:49.99,desc:"Casque pour profiter de tes sessions gaming.",img:"https://images.unsplash.com/photo-1599669454699-248893623440?w=700",colors:["Noir","Blanc","Violet"],sizes:["Taille unique"],new:true},
+ {id:17,name:"Clavier Gaming",cat:"Gaming",price:44.99,desc:"Clavier pour ton espace de jeu.",img:"https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=700",colors:["Noir","Blanc"],sizes:["Taille unique"]},
+ {id:18,name:"Souris Gaming",cat:"Gaming",price:24.99,desc:"Souris au design moderne.",img:"https://images.unsplash.com/photo-1527814050087-3793815479db?w=700",colors:["Noir","Blanc"],sizes:["Taille unique"]},
+ {id:19,name:"Fauteuil Gaming",cat:"Gaming",price:129.99,desc:"Fauteuil pour aménager ton coin gaming.",img:"https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=700",colors:["Noir","Gris","Violet"],sizes:["Taille unique"]},
+ {id:20,name:"Lampe de chambre",cat:"Chambre",price:24.99,desc:"Une lampe pour apporter une touche élégante à ton intérieur.",img:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=700",colors:["Blanc","Beige","Noir"],sizes:["Taille unique"],new:true},
+ {id:21,name:"Décoration murale",cat:"Chambre",price:19.99,desc:"Décoration pour personnaliser ta chambre.",img:"https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=700",colors:["Beige","Noir","Blanc"],sizes:["Taille unique"]},
+ {id:22,name:"Plaid douceur",cat:"Maison",price:22.99,desc:"Plaid confortable pour ton intérieur.",img:"https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=700",colors:["Beige","Blanc","Gris","Marron"],sizes:["Taille unique"]},
+ {id:23,name:"Coussin déco",cat:"Maison",price:14.99,desc:"Coussin décoratif pour ton salon ou ta chambre.",img:"https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=700",colors:["Beige","Blanc","Noir","Marron"],sizes:["Taille unique"]},
+ {id:24,name:"Trousse beauté",cat:"Beauté",price:12.99,desc:"Trousse pratique pour ranger tes accessoires.",img:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=700",colors:["Rose","Noir","Beige","Violet"],sizes:["Taille unique"],new:true},
+ {id:25,name:"Miroir lumineux",cat:"Beauté",price:29.99,desc:"Miroir pour ton espace beauté.",img:"https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=700",colors:["Blanc","Noir"],sizes:["Taille unique"]},
+ {id:26,name:"Écouteurs sans fil",cat:"Technologie",price:39.99,desc:"Écouteurs pratiques pour écouter tes contenus.",img:"https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=700",colors:["Noir","Blanc"],sizes:["Taille unique"],new:true},
+ {id:27,name:"Enceinte Bluetooth",cat:"Technologie",price:34.99,desc:"Enceinte compacte pour écouter ta musique.",img:"https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=700",colors:["Noir","Blanc","Bleu"],sizes:["Taille unique"]},
+ {id:28,name:"Support téléphone",cat:"Technologie",price:9.99,desc:"Support pratique pour ton téléphone.",img:"https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=700",colors:["Noir","Blanc","Argent"],sizes:["Taille unique"]}
+];
 
-  {name:"Robe tendance",category:"Mode femme",price:39.90,image:"https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=700",description:"Une robe au style actuel."},
-  {name:"Blazer beige",category:"Mode femme",price:54.90,image:"https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=700",description:"Un blazer chic qui apporte une touche soignée."},
-  {name:"Pantalon large",category:"Mode femme",price:34.90,image:"https://images.unsplash.com/photo-1509631179647-0177331693ae?w=700",description:"Un pantalon à la coupe ample pour un look moderne."},
-  {name:"Cardigan doux",category:"Mode femme",price:32.90,image:"https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=700",description:"Un cardigan facile à associer."},
-  {name:"Top élégant",category:"Mode femme",price:26.90,image:"https://images.unsplash.com/photo-1483985988355-763728e1935b?w=700",description:"Un haut moderne pour compléter une tenue."},
+/* VARIABLES */
 
-  {name:"Sneakers Street",category:"Sneakers",price:69.90,image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=700",description:"Des sneakers au look dynamique."},
-  {name:"Baskets blanches",category:"Sneakers",price:74.90,image:"https://images.unsplash.com/photo-1549298916-b41d501d3772?w=700",description:"Des baskets blanches faciles à assortir."},
-  {name:"Sneakers rétro",category:"Sneakers",price:79.90,image:"https://images.unsplash.com/photo-1552346154-21d32810aba3?w=700",description:"Des sneakers inspirées des modèles rétro."},
+let selectedCategory="Tous";
+let cart=[];
+let selectedProduct=null;
 
-  {name:"Casquette Fusion",category:"Accessoires",price:19.90,image:"https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=700",description:"Une casquette pour ajouter une touche sportive."},
-  {name:"Montre élégante",category:"Accessoires",price:79.90,image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=700",description:"Une montre au design élégant."},
-  {name:"Sac urbain",category:"Accessoires",price:39.90,image:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=700",description:"Un sac au style urbain pour les déplacements."},
-  {name:"Lunettes tendance",category:"Accessoires",price:24.90,image:"https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=700",description:"Des lunettes au style contemporain."},
+function money(number){
+ return number.toFixed(2).replace(".",",")+" €";
+}
 
-  {name:"Clavier mécanique",category:"Gaming",price:79.90,image:"https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=700",description:"Un clavier mécanique au style moderne."},
-  {name:"Casque gaming",category:"Gaming",price:59.90,image:"https://images.unsplash.com/photo-1599669454699-248893623440?w=700",description:"Un casque au design gaming."},
-  {name:"Souris gaming",category:"Gaming",price:34.90,image:"https://images.unsplash.com/photo-1527814050087-3793815479db?w=700",description:"Une souris au look gaming."},
-  {name:"Setup Gaming",category:"Gaming",price:399,image:"https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=700",description:"Un espace gaming pour aménager ton environnement de jeu."},
-  {name:"Fauteuil gaming",category:"Gaming",price:189,image:"https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=700",description:"Un fauteuil au style gaming pour aménager ton espace de jeu."},
+/* AFFICHAGE DES PRODUITS */
 
-  {name:"Lampe LED",category:"Chambre",price:29.90,image:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=700",description:"Une lampe décorative pour créer une ambiance agréable dans ta chambre."},
-  {name:"Coussin beige",category:"Chambre",price:19.90,image:"https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=700",description:"Un coussin doux dans une couleur beige facile à associer."},
-  {name:"Décoration murale",category:"Chambre",price:24.90,image:"https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?w=700",description:"Une décoration pour personnaliser ton espace."},
+function renderProducts(){
+ const search=document.getElementById("search").value.trim().toLowerCase();
+ const sort=document.getElementById("sort").value;
 
-  {name:"Vase design",category:"Maison",price:34.90,image:"https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=700",description:"Un vase décoratif au design moderne."},
-  {name:"Lampe design",category:"Maison",price:49.90,image:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=700",description:"Une lampe pour apporter une touche élégante à ton intérieur."},
+ let list=products.filter(p=>
+  (selectedCategory==="Tous"||p.cat===selectedCategory)&&
+  (p.name+" "+p.desc+" "+p.cat).toLowerCase().includes(search)
+ );
+
+ if(sort==="low")list.sort((a,b)=>a.price-b.price);
+ if(sort==="high")list.sort((a,b)=>b.price-a.price);
+ if(sort==="az")list.sort((a,b)=>a.name.localeCompare(b.name,"fr"));
+
+ const area=document.getElementById("products");
+ area.innerHTML="";
+
+ document.getElementById("noProducts").hidden=list.length!==0;
+
+ list.forEach(p=>{
+  const card=document.createElement("article");
+  card.className="product";
+
+  const img=document.createElement("img");
+  img.src=p.img;
+  img.alt=p.name;
+  img.loading="lazy";
+
+  img.onerror=function(){
+   this.onerror=null;
+   this.src="https://placehold.co/600x450/e9dfd1/171717?text=LN+FUSION";
+  };
+
+  const info=document.createElement("div");
+  info.className="product-info";
+
+  const tag=document.createElement("span");
+  tag.className="tag";
+  tag.textContent=p.new?"NOUVEAUTÉ":p.cat;
+
+  const title=document.createElement("h3");
+  title.textContent=p.name;
+
+  const description=document.createElement("p");
+  description.textContent=p.desc;
+
+  const price=document.createElement("div");
+  price.className="price";
+  price.textContent=money(p.price);
+
+  const button=document.createElement("button");
+  button.type="button";
+  button.textContent="Voir le produit";
+  button.addEventListener("click",()=>openProduct(p.id));
+
+  info.append(tag,title,description,price,button);
+  card.append(img,info);
+  area.appendChild(card);
+ });
+}
+
+/* FILTRES ET RECHERCHE */
+
+document.getElementById("categories").addEventListener("click",event=>{
+ const button=event.target.closest("button[data-category]");
+ if(!button)return;
+
+ selectedCategory=button.dataset.category;
+
+ document.querySelectorAll("nav button").forEach(b=>{
+  b.classList.toggle("active",b===button);
+ });
+
+ renderProducts();
+});
+
+document.getElementById("search").addEventListener("input",renderProducts);
+document.getElementById("sort").addEventListener("change",renderProducts);
+
+/* FENÊTRE PRODUIT */
+
+function openProduct(id){
+ selectedProduct=products.find(p=>p.id===id);
+ if(!selectedProduct)return;
+
+ const p=selectedProduct;
+
+ const colors=p.colors.map(c=>
+  `<option value="${c}">${c}</option>`
+ ).join("");
+
+ const sizes=p.sizes.map(s=>
+  `<option value="${s}">${s}</option>`
+ ).join("");
+
+ document.getElementById("productDetails").innerHTML=`
+  <h2>${p.name}</h2>
+  <img src="${p.img}" alt="${p.name}" onerror="this.onerror=null;this.src='https://placehold.co/600x450/e9dfd1/171717?text=LN+FUSION'">
+  <p>${p.desc}</p>
+  <div class="price">${money(p.price)}</div>
+
+  <label for="colorChoice">Choisir une couleur</label>
+  <select id="colorChoice">${colors}</select>
+
+  <label for="sizeChoice">Choisir une taille</label>
+  <select id="sizeChoice">${sizes}</select>
+
+  <button class="btn" onclick="addToCart()">Ajouter au panier</button>
+ `;
+
+ document.getElementById("productModal").classList.add("show");
+}
+
+/* AJOUT AU PANIER */
+
+function addToCart(){
+ if(!selectedProduct)return;
+
+ const color=document.getElementById("colorChoice").value;
+ const size=document.getElementById("sizeChoice").value;
+
+ const existing=cart.find(item=>
+  item.id===selectedProduct.id&&
+  item.color===color&&
+  item.size===size
+ );
+
+ if(existing){
+  existing.qty++;
+ }else{
+  cart.push({
+   id:selectedProduct.id,
+   name:selectedProduct.name,
+   price:selectedProduct.price,
+   color:color,
+   size:size,
+   qty:1
+  });
+ }
+
+ updateCart();
+ closeModal("productModal");
+}
+
+/* AFFICHAGE DU PANIER */
+
+function updateCart(){
+ const count=cart.reduce((sum,item)=>sum+item.qty,0);
+ document.getElementById("cartCount").textContent=count;
+
+ const area=document.getElementById("cartItems");
+ area.innerHTML="";
+
+ if(cart.length===0){
+  area.innerHTML='<div class="empty">Ton panier est vide.</div>';
+ }else{
+  
+cart.forEach((item,index)=>{
+  const line=document.createElement("div");
+  line.className="cart-item";
+
+  const info=document.createElement("div");
+  info.textContent=item.name+" — "+item.color+" — "+item.size+" — "+money(item.price)+" × "+item.qty;
+
+  const controls=document.createElement("div");
+
+  const minus=document.createElement("button");
+  minus.textContent="−";
+  minus.onclick=()=>{
+    item.qty--;
+    if(item.qty<=0) cart.splice(index,1);
+    updateCart();
+  };
+
+  const plus=document.createElement("button");
+  plus.textContent="+";
+  plus.onclick=()=>{
+    item.qty++;
+    updateCart();
+  };
+
+  controls.append(minus,plus);
+  line.append(info,controls);
+  area.appendChild(line);
+ });
+ }
+
+ const total=cart.reduce((sum,item)=>sum+item.price*item.qty,0);
+ document.getElementById("cartTotal").textContent="Total : "+money(total);
+}
+
+function openCart(){
+ updateCart();
+ document.getElementById("cartModal").classList.add("show");
+}
+
+function clearCart(){
+ cart=[];
+ updateCart();
+}
+
+function openLogin(){
+ document.getElementById("loginModal").classList.add("show");
+}
+
+function closeModal(id){
+ document.getElementById(id).classList.remove("show");
+}
+
+function outsideClose(event,id){
+ if(event.target.id===id) closeModal(id);
+}
+
+function showRegister(){
+ document.getElementById("loginContent").innerHTML=`
+  <label for="registerName">Nom</label>
+  <input id="registerName" type="text" placeholder="Ton nom">
+  <label for="registerEmail">Adresse e-mail</label>
+  <input id="registerEmail" type="email" placeholder="exemple@email.com">
+  <label for="registerPassword">Mot de passe</label>
+  <input id="registerPassword" type="password" placeholder="Mot de passe">
+  <button class="btn" onclick="demoRegister()">Créer mon compte</button>
+  <button class="btn light" onclick="restoreLogin()">Retour</button>
+ `;
+}
+
+function restoreLogin(){
+ document.getElementById("loginContent").innerHTML=`
+  <label for="email">Adresse e-mail</label>
+  <input id="email" type="email" placeholder="exemple@email.com">
+  <label for="password">Mot de passe</label>
+  <input id="password" type="password" placeholder="Ton mot de passe">
+  <button class="btn" onclick="demoLogin()">Se connecter</button>
+  <button class="btn light" onclick="showRegister()">Créer un compte</button>
+ `;
+}
+
+function demoRegister(){
+ const name=document.getElementById("registerName").value.trim();
+ const email=document.getElementById("registerEmail").value.trim();
+ const password=document.getElementById("registerPassword").value;
+
+ if(!name||!email||password.length<8){
+  alert("Remplis tous les champs et utilise au moins 8 caractères.");
+  return;
+ }
+
+ alert("Inscription de démonstration réussie. Aucun compte réel n'a été créé.");
+ restoreLogin();
+}
+
+function demoLogin(){
+ const email=document.getElementById("email").value.trim();
+ const password=document.getElementById("password").value;
+
+ if(!email||!password){
+  alert("Remplis les deux champs.");
+  return;
+ }
+
+ alert("Connexion de démonstration uniquement.");
+}
+
+document.addEventListener("keydown",event=>{
+ if(event.key==="Escape"){
+  document.querySelectorAll(".modal.show").forEach(modal=>{
+   modal.classList.remove("show");
+  });
+ }
+});
+
+renderProducts();
+updateCart();
+
+</script>
+</body>
+</html>
+
   
