@@ -5,11 +5,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LN FUSION - Boutique Tendances</title>
-<meta name="description" content="LN FUSION : découvre les tendances mode, sneakers, gaming et lifestyle.">
+<meta name="description" content="LN FUSION : mode, sneakers, gaming et lifestyle.">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-:root {
+:root{
   --black:#171717;
   --white:#fff;
   --beige:#e9dfd0;
@@ -20,9 +20,9 @@
 html{scroll-behavior:smooth}
 body{
   margin:0;
-  background:white;
-  color:var(--black);
   font-family:Montserrat,Arial,sans-serif;
+  color:var(--black);
+  background:white;
 }
 button,input{font-family:inherit}
 button{cursor:pointer}
@@ -37,7 +37,6 @@ a{text-decoration:none;color:inherit}
   letter-spacing:2px;
   font-weight:800;
 }
-
 header{
   position:sticky;
   top:0;
@@ -51,7 +50,7 @@ header{
   gap:15px;
 }
 .logo{
-  font-size:26px;
+  font-size:25px;
   font-weight:900;
   letter-spacing:-1.5px;
   white-space:nowrap;
@@ -63,24 +62,16 @@ header{
   letter-spacing:4px;
   text-align:center;
 }
-nav{
-  display:flex;
-  gap:19px;
-  align-items:center;
-}
+nav{display:flex;gap:18px;align-items:center}
 nav a{
   font-size:10px;
   font-weight:900;
   text-transform:uppercase;
 }
 nav a:hover{color:#a18b6d}
-.header-actions{
-  display:flex;
-  gap:8px;
-  align-items:center;
-}
+.header-actions{display:flex;gap:8px;align-items:center}
 .search-mini{
-  width:140px;
+  width:130px;
   min-width:0;
   padding:11px 13px;
   border:1px solid #ddd;
@@ -89,7 +80,7 @@ nav a:hover{color:#a18b6d}
 }
 .cart-btn,.login-btn{
   border:0;
-  padding:12px 15px;
+  padding:12px 14px;
   border-radius:30px;
   font-size:10px;
   font-weight:900;
@@ -97,9 +88,7 @@ nav a:hover{color:#a18b6d}
 }
 .cart-btn{background:var(--black);color:white}
 .login-btn{background:var(--beige);color:var(--black)}
-.cart-btn:hover,.login-btn:hover{opacity:.75}
 
-/* ACCUEIL */
 .hero{
   margin:20px 4%;
   min-height:440px;
@@ -131,12 +120,7 @@ nav a:hover{color:#a18b6d}
   margin:22px 0;
   font-weight:900;
 }
-.hero p{
-  font-size:13px;
-  line-height:1.8;
-  color:#eee;
-  max-width:430px;
-}
+.hero p{font-size:13px;line-height:1.8;color:#eee}
 .main-btn{
   display:inline-block;
   margin-top:15px;
@@ -148,13 +132,8 @@ nav a:hover{color:#a18b6d}
   font-size:10px;
   font-weight:900;
 }
-
-/* SECTIONS */
 section{padding:55px 6%}
-.section-head{
-  text-align:center;
-  margin-bottom:27px;
-}
+.section-head{text-align:center;margin-bottom:27px}
 .section-head small,.eyebrow{
   color:#a18b6d;
   font-weight:900;
@@ -167,20 +146,16 @@ section{padding:55px 6%}
   font-weight:900;
   margin:9px 0;
 }
-.section-head p{
-  font-size:11px;
-  color:var(--gray);
-}
+.section-head p{font-size:11px;color:var(--gray)}
 
-/* CATÉGORIES */
 .categories{
   display:grid;
-  grid-template-columns:repeat(5,minmax(0,1fr));
-  gap:13px;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
 }
 .category{
   position:relative;
-  height:165px;
+  height:190px;
   border-radius:9px;
   overflow:hidden;
   background:#ddd;
@@ -192,7 +167,7 @@ section{padding:55px 6%}
   object-fit:cover;
   transition:.3s;
 }
-.category:hover img{transform:scale(1.07)}
+.category:hover img{transform:scale(1.06)}
 .category:after{
   content:"";
   position:absolute;
@@ -202,14 +177,12 @@ section{padding:55px 6%}
 .category span{
   position:absolute;
   z-index:2;
-  bottom:13px;
-  left:11px;
+  bottom:15px;
+  left:14px;
   color:white;
-  font-size:12px;
+  font-size:13px;
   font-weight:900;
 }
-
-/* BANNIÈRE */
 .banner{
   margin:15px 5%;
   padding:48px 20px;
@@ -224,7 +197,6 @@ section{padding:55px 6%}
 }
 .banner p{font-size:12px}
 
-/* RECHERCHE */
 .search-section{
   background:var(--cream);
   padding-top:42px;
@@ -254,8 +226,6 @@ section{padding:55px 6%}
   font-size:10px;
   font-weight:900;
 }
-
-/* FILTRES */
 .filters{
   display:flex;
   gap:8px;
@@ -276,8 +246,6 @@ section{padding:55px 6%}
   color:white;
   border-color:var(--black);
 }
-
-/* PRODUITS */
 .products{
   display:grid;
   grid-template-columns:repeat(4,minmax(0,1fr));
@@ -314,10 +282,7 @@ section{padding:55px 6%}
   margin:8px 0;
   min-height:30px;
 }
-.price{
-  font-weight:900;
-  font-size:16px;
-}
+.price{font-weight:900;font-size:16px}
 .add,.details-btn{
   width:100%;
   padding:11px;
@@ -331,7 +296,6 @@ section{padding:55px 6%}
   border:1px solid var(--black);
   color:white;
 }
-.add:hover{background:#444}
 .details-btn{
   background:white;
   border:1px solid #ddd;
@@ -413,11 +377,7 @@ section{padding:55px 6%}
   border-radius:8px;
 }
 .modal-card h2{font-size:25px}
-.modal-card p{
-  font-size:13px;
-  line-height:1.8;
-  color:#555;
-}
+.modal-card p{font-size:13px;line-height:1.8;color:#555}
 .modal-close{
   background:var(--black);
   color:white;
@@ -449,14 +409,8 @@ section{padding:55px 6%}
   max-height:92vh;
   overflow:auto;
 }
-.auth-box h2{
-  font-size:27px;
-  margin:15px 0 5px;
-}
-.auth-box>p{
-  font-size:11px;
-  color:#777;
-}
+.auth-box h2{font-size:27px;margin:15px 0 5px}
+.auth-box>p{font-size:11px;color:#777}
 .auth-close{
   position:absolute;
   right:15px;
@@ -465,11 +419,7 @@ section{padding:55px 6%}
   border:0;
   font-size:21px;
 }
-.auth-switch{
-  display:flex;
-  gap:8px;
-  margin:20px 0;
-}
+.auth-switch{display:flex;gap:8px;margin:20px 0}
 .auth-switch button{
   flex:1;
   padding:11px;
@@ -502,12 +452,7 @@ section{padding:55px 6%}
   border-radius:7px;
   font-weight:900;
 }
-.password-help{
-  font-size:10px;
-  line-height:1.7;
-  color:#777;
-  margin:8px 0;
-}
+.password-help{font-size:10px;line-height:1.7;color:#777;margin:8px 0}
 #password-strength{
   height:6px;
   background:#eee;
@@ -522,11 +467,7 @@ section{padding:55px 6%}
   background:#a18b6d;
   transition:.2s;
 }
-#auth-message{
-  font-size:11px;
-  font-weight:700;
-  line-height:1.5;
-}
+#auth-message{font-size:11px;font-weight:700;line-height:1.5}
 
 footer{
   text-align:center;
@@ -535,20 +476,11 @@ footer{
   color:#777;
   font-size:10px;
 }
-footer strong{
-  font-size:23px;
-  color:#171717;
-  letter-spacing:2px;
-}
+footer strong{font-size:23px;color:#171717;letter-spacing:2px}
 
 @media(max-width:900px){
   header{flex-wrap:wrap}
-  nav{
-    order:3;
-    width:100%;
-    justify-content:center;
-  }
-  .categories{grid-template-columns:repeat(3,minmax(0,1fr))}
+  nav{order:3;width:100%;justify-content:center}
   .products{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
 @media(max-width:600px){
@@ -556,27 +488,14 @@ footer strong{
   .logo{font-size:22px}
   nav{gap:13px}
   nav a{font-size:9px}
-  .header-actions{
-    width:100%;
-    justify-content:center;
-  }
-  .search-mini{
-    flex:1;
-    max-width:220px;
-  }
-  .hero{
-    min-height:360px;
-    padding:35px 7%;
-    margin:12px 3%;
-  }
+  .header-actions{width:100%;justify-content:center}
+  .search-mini{flex:1;max-width:220px}
+  .hero{min-height:360px;padding:35px 7%;margin:12px 3%}
   .hero h1{letter-spacing:-2px}
   section{padding:40px 5%}
   .categories{grid-template-columns:repeat(2,minmax(0,1fr))}
   .category{height:145px}
-  .products{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:11px;
-  }
+  .products{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
   .product img{height:170px}
   .product-info{padding:10px}
   .product-info h3{font-size:11px}
@@ -616,7 +535,6 @@ footer strong{
 </header>
 
 <main>
-
 <div class="hero" id="accueil">
   <div class="hero-content">
     <span class="tag">LN FUSION — NOUVELLE COLLECTION</span>
@@ -625,9 +543,7 @@ footer strong{
       Découvre les tendances du moment : vêtements, sneakers,
       gaming, accessoires, technologie et décoration.
     </p>
-    <button class="main-btn" onclick="goToShop()">
-      DÉCOUVRIR LA BOUTIQUE
-    </button>
+    <button class="main-btn" onclick="goToShop()">DÉCOUVRIR LA BOUTIQUE</button>
   </div>
 </div>
 
@@ -644,11 +560,8 @@ footer strong{
   <small class="eyebrow">LA SÉLECTION LN FUSION</small>
   <h2>Les tendances du moment.</h2>
   <p>Des nouveautés pour tous les styles et tous les univers.</p>
-  <button class="main-btn"
-    style="background:#171717;color:white"
-    onclick="goToShop()">
-    VOIR LES PRODUITS
-  </button>
+  <button class="main-btn" style="background:#171717;color:white"
+    onclick="goToShop()">VOIR LES PRODUITS</button>
 </div>
 
 <section class="search-section">
@@ -658,8 +571,7 @@ footer strong{
     <p>Recherche un produit par son nom ou sa catégorie.</p>
   </div>
   <div class="search-area">
-    <input id="search-main"
-      placeholder="Exemple : sneakers, sweat, casque...">
+    <input id="search-main" placeholder="Exemple : sneakers, sweat, casque...">
     <button onclick="searchFromMain()">RECHERCHER</button>
   </div>
 </section>
@@ -671,11 +583,8 @@ footer strong{
     <p>Appuie sur un article pour découvrir sa description.</p>
   </div>
   <div class="filters" id="filters"></div>
-  <div class="products" id="products">
-    <p class="empty">Chargement des produits...</p>
-  </div>
+  <div class="products" id="products"></div>
 </section>
-
 </main>
 
 <!-- PANIER -->
@@ -689,7 +598,7 @@ footer strong{
   </p>
 </div>
 
-<!-- DESCRIPTION PRODUIT -->
+<!-- DESCRIPTION -->
 <div id="product-modal" onclick="if(event.target===this)closeProduct()">
   <div class="modal-card">
     <div id="product-modal-content"></div>
@@ -702,58 +611,38 @@ footer strong{
   onclick="if(event.target===this)closeLogin()">
   <div class="auth-box">
     <button class="auth-close" onclick="closeLogin()">✕</button>
-
     <div class="logo">LN <span>FUSION</span></div>
     <h2 id="auth-title">Bienvenue !</h2>
     <p>Connecte-toi à ton espace LN FUSION.</p>
 
     <div class="auth-switch">
-      <button id="login-tab" class="active"
-        onclick="switchAuth('login')">
-        SE CONNECTER
-      </button>
-      <button id="register-tab"
-        onclick="switchAuth('register')">
-        CRÉER UN COMPTE
-      </button>
+      <button id="login-tab" class="active" onclick="switchAuth('login')">SE CONNECTER</button>
+      <button id="register-tab" onclick="switchAuth('register')">CRÉER UN COMPTE</button>
     </div>
 
     <form id="auth-form">
-      <input id="auth-name" type="text"
-        placeholder="Ton nom d'utilisateur"
-        minlength="3" maxlength="25"
-        autocomplete="username" required>
-
-      <input id="auth-password" type="password"
-        placeholder="Ton mot de passe"
+      <input id="auth-name" type="text" placeholder="Ton nom d'utilisateur"
+        minlength="3" maxlength="25" autocomplete="username" required>
+      <input id="auth-password" type="password" placeholder="Ton mot de passe"
         autocomplete="current-password" required>
 
       <div id="confirm-area" style="display:none">
         <input id="auth-confirm" type="password"
-          placeholder="Confirmer ton mot de passe"
-          autocomplete="new-password">
-
+          placeholder="Confirmer ton mot de passe" autocomplete="new-password">
         <div class="password-help">
-          Pour la démonstration : 12 caractères minimum,
-          une majuscule, une minuscule, un chiffre et un caractère spécial.
+          12 caractères minimum, une majuscule, une minuscule,
+          un chiffre et un caractère spécial.
         </div>
-
-        <div id="password-strength">
-          <span id="strength-bar"></span>
-        </div>
-        <div id="strength-text" class="password-help">
-          Solidité du mot de passe : non vérifiée
-        </div>
+        <div id="password-strength"><span id="strength-bar"></span></div>
+        <div id="strength-text" class="password-help">Solidité du mot de passe : non vérifiée</div>
       </div>
 
-      <button class="auth-submit" id="auth-submit" type="submit">
-        SE CONNECTER
-      </button>
+      <button class="auth-submit" id="auth-submit" type="submit">SE CONNECTER</button>
     </form>
 
     <p id="auth-message"></p>
     <p style="font-size:9px;color:#999">
-      Connexion de démonstration : aucun vrai compte n'est créé
+      Démonstration uniquement : aucun vrai compte n'est créé
       et aucun mot de passe n'est enregistré.
     </p>
   </div>
@@ -766,114 +655,40 @@ footer strong{
 </footer>
 
 <script>
-/* LISTE DES PRODUITS */
+/* PRODUITS */
 const products = [
-  {
-    name:"T-shirt LN Fusion", category:"Mode homme", price:24.90,
-    image:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=700",
-    description:"Un t-shirt au style minimaliste, facile à associer avec un jean ou un pantalon casual."
-  },
-  {
-    name:"Sweat LN Fusion", category:"Mode homme", price:44.90,
-    image:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=700",
-    description:"Un sweat au style urbain et décontracté."
-  },
-  {
-    name:"Veste urbaine", category:"Mode homme", price:59.90,
-    image:"https://images.unsplash.com/photo-1551028719-00167b16eac5?w=700",
-    description:"Une veste inspirée du streetwear."
-  },
-  {
-    name:"Hoodie Premium", category:"Mode homme", price:49.90,
-    image:"https://images.unsplash.com/photo-1578681994506-b8f463449011?w=700",
-    description:"Un hoodie moderne pour un style décontracté."
-  },
-  {
-    name:"Jean baggy", category:"Mode homme", price:42.90,
-    image:"https://images.unsplash.com/photo-1542272604-787c3835535d?w=700",
-    description:"Un jean à la coupe ample inspiré de la mode urbaine."
-  },
-  {
-    name:"Polo classique", category:"Mode homme", price:29.90,
-    image:"https://images.unsplash.com/photo-1625910513413-5fc6c3f3b8d1?w=700",
-    description:"Un polo au style simple pour une tenue casual."
-  },
-  {
-    name:"Robe tendance", category:"Mode femme", price:39.90,
-    image:"https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=700",
-    description:"Une robe au style actuel pour créer une tenue élégante."
-  },
-  {
-    name:"Blazer beige", category:"Mode femme", price:54.90,
-    image:"https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=700",
-    description:"Un blazer chic qui apporte une touche soignée."
-  },
-  {
-    name:"Pantalon large", category:"Mode femme", price:34.90,
-    image:"https://images.unsplash.com/photo-1509631179647-0177331693ae?w=700",
-    description:"Un pantalon à la coupe ample pour un look moderne."
-  },
-  {
-    name:"Cardigan doux", category:"Mode femme", price:32.90,
-    image:"https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=700",
-    description:"Un cardigan facile à associer."
-  },
-  {
-    name:"Sneakers Street", category:"Sneakers", price:69.90,
-    image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=700",
-    description:"Des sneakers au look dynamique."
-  },
-  {
-    name:"Baskets blanches", category:"Sneakers", price:74.90,
-    image:"https://images.unsplash.com/photo-1549298916-b41d501d3772?w=700",
-    description:"Des baskets blanches faciles à assortir."
-  },
-  {
-    name:"Sneakers rétro", category:"Sneakers", price:79.90,
-    image:"https://images.unsplash.com/photo-1552346154-21d32810aba3?w=700",
-    description:"Des sneakers inspirées des modèles rétro."
-  },
-  {
-    name:"Casquette Fusion", category:"Accessoires", price:19.90,
-    image:"https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=700",
-    description:"Une casquette pour ajouter une touche sportive."
-  },
-  {
-    name:"Montre élégante", category:"Accessoires", price:79.90,
-    image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=700",
-    description:"Une montre au design élégant."
-  },
-  {
-    name:"Sac urbain", category:"Accessoires", price:39.90,
-    image:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=700",
-    description:"Un sac au style urbain pour les déplacements."
-  },
-  {
-    name:"Lunettes tendance", category:"Accessoires", price:24.90,
-    image:"https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=700",
-    description:"Des lunettes au style contemporain."
-  },
-  {
-    name:"Clavier mécanique", category:"Gaming", price:79.90,
-    image:"https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=700",
-    description:"Un clavier mécanique au style moderne."
-  },
-  {
-    name:"Casque gaming", category:"Gaming", price:59.90,
-    image:"https://images.unsplash.com/photo-1599669454699-248893623440?w=700",
-    description:"Un casque au design gaming."
-  },
-  {
-    name:"Souris gaming", category:"Gaming", price:34.90,
-    image:"https://images.unsplash.com/photo-1527814050087-3793815479db?w=700",
-    description:"Une souris au look gaming."
-  },
-  {
-    name:"Setup Gaming", category:"Gaming", price:399,
-    image:"https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=700",
-    description:"Un espace gaming pour aménager ton environnement de jeu."
-  },
-  {
-    name:"Fauteuil gaming", category:"Gaming", price:189,
-    image:"https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=700",
-    description:"Un fauteuil au st
+  {name:"T-shirt LN Fusion",category:"Mode homme",price:24.90,image:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=700",description:"Un t-shirt au style minimaliste, facile à associer avec un jean ou un pantalon casual."},
+  {name:"Sweat LN Fusion",category:"Mode homme",price:44.90,image:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=700",description:"Un sweat au style urbain et décontracté."},
+  {name:"Veste urbaine",category:"Mode homme",price:59.90,image:"https://images.unsplash.com/photo-1551028719-00167b16eac5?w=700",description:"Une veste inspirée du streetwear."},
+  {name:"Hoodie Premium",category:"Mode homme",price:49.90,image:"https://images.unsplash.com/photo-1578681994506-b8f463449011?w=700",description:"Un hoodie moderne pour un style décontracté."},
+  {name:"Jean baggy",category:"Mode homme",price:42.90,image:"https://images.unsplash.com/photo-1542272604-787c3835535d?w=700",description:"Un jean à la coupe ample inspiré de la mode urbaine."},
+  {name:"Polo classique",category:"Mode homme",price:29.90,image:"https://images.unsplash.com/photo-1625910513413-5fc6c3f3b8d1?w=700",description:"Un polo au style simple pour une tenue casual."},
+
+  {name:"Robe tendance",category:"Mode femme",price:39.90,image:"https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=700",description:"Une robe au style actuel."},
+  {name:"Blazer beige",category:"Mode femme",price:54.90,image:"https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=700",description:"Un blazer chic qui apporte une touche soignée."},
+  {name:"Pantalon large",category:"Mode femme",price:34.90,image:"https://images.unsplash.com/photo-1509631179647-0177331693ae?w=700",description:"Un pantalon à la coupe ample pour un look moderne."},
+  {name:"Cardigan doux",category:"Mode femme",price:32.90,image:"https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=700",description:"Un cardigan facile à associer."},
+  {name:"Top élégant",category:"Mode femme",price:26.90,image:"https://images.unsplash.com/photo-1483985988355-763728e1935b?w=700",description:"Un haut moderne pour compléter une tenue."},
+
+  {name:"Sneakers Street",category:"Sneakers",price:69.90,image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=700",description:"Des sneakers au look dynamique."},
+  {name:"Baskets blanches",category:"Sneakers",price:74.90,image:"https://images.unsplash.com/photo-1549298916-b41d501d3772?w=700",description:"Des baskets blanches faciles à assortir."},
+  {name:"Sneakers rétro",category:"Sneakers",price:79.90,image:"https://images.unsplash.com/photo-1552346154-21d32810aba3?w=700",description:"Des sneakers inspirées des modèles rétro."},
+
+  {name:"Casquette Fusion",category:"Accessoires",price:19.90,image:"https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=700",description:"Une casquette pour ajouter une touche sportive."},
+  {name:"Montre élégante",category:"Accessoires",price:79.90,image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=700",description:"Une montre au design élégant."},
+  {name:"Sac urbain",category:"Accessoires",price:39.90,image:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=700",description:"Un sac au style urbain pour les déplacements."},
+  {name:"Lunettes tendance",category:"Accessoires",price:24.90,image:"https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=700",description:"Des lunettes au style contemporain."},
+
+  {name:"Clavier mécanique",category:"Gaming",price:79.90,image:"https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=700",description:"Un clavier mécanique au style moderne."},
+  {name:"Casque gaming",category:"Gaming",price:59.90,image:"https://images.unsplash.com/photo-1599669454699-248893623440?w=700",description:"Un casque au design gaming."},
+  {name:"Souris gaming",category:"Gaming",price:34.90,image:"https://images.unsplash.com/photo-1527814050087-3793815479db?w=700",description:"Une souris au look gaming."},
+  {name:"Setup Gaming",category:"Gaming",price:399,image:"https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=700",description:"Un espace gaming pour aménager ton environnement de jeu."},
+  {name:"Fauteuil gaming",category:"Gaming",price:189,image:"https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=700",description:"Un fauteuil au style gaming pour aménager ton espace de jeu."},
+
+  {name:"Lampe LED",category:"Chambre",price:29.90,image:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=700",description:"Une lampe décorative pour créer une ambiance agréable dans ta chambre."},
+  {name:"Coussin beige",category:"Chambre",price:19.90,image:"https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=700",description:"Un coussin doux dans une couleur beige facile à associer."},
+  {name:"Décoration murale",category:"Chambre",price:24.90,image:"https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?w=700",description:"Une décoration pour personnaliser ton espace."},
+
+  {name:"Vase design",category:"Maison",price:34.90,image:"https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=700",description:"Un vase décoratif au design moderne."},
+  {name:"Lampe design",category:"Maison",price:49.90,image:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=700",description:"Une lampe pour apporter une touche élégante à ton intérieur."},
+  
