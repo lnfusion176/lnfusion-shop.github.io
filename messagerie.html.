@@ -1,1 +1,355 @@
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Messagerie - LN FUSION</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#101014;color:white;font-family:Arial,sans-serif}
+header{padding:20px;background:#19191f;border-bottom:1px solid #333}
+header h2{margin:0;color:#c9a4ff}
+main{max-width:850px;margin:25px auto;padding:15px}
+.panel{background:#19191f;border:1px solid #333;border-radius:15px;padding:18px;margin-bottom:15px}
+input,textarea{width:100%;padding:13px;margin:7px 0;background:#101014;color:white;border:1px solid #444;border-radius:8px}
+button{padding:12px 16px;border:0;border-radius:8px;background:#b77aff;color:#160d20;font-weight:bold;cursor:pointer;margin:5px 3px}
+button.secondary{background:#38333f;color:white}
+button:disabled{opacity:.5}
+#messages{height:380px;overflow-y:auto;background:#101014;border:1px solid #333;border-radius:10px;padding:12px}
+.message{padding:11px;margin:9px 0;border-radius:10px;background:#292431;max-width:85%;overflow-wrap:anywhere}
+.message.mine{margin-left:auto;background:#593b78}
+.small{font-size:12px;color:#bbb;margin-top:5px}
+#status{color:#c9a4ff;margin:10px 0}
+#chatList button{display:block;width:100%;text-align:left;background:#292431;color:white}
+.hidden{display:none}
+</style>
+</head>
+<body>
+
+<header>
+<h2>LN FUSION — Messagerie</h2>
+</header>
+
+<main>
+<div class="panel" id="authPanel">
+<h3>Connexion</h3>
+<input id="email" type="email" placeholder="Adresse e-mail">
+<input id="password" type="password" placeholder="Mot de passe">
+<input id="name" type="text" placeholder="Ton prénom ou pseudo (pour créer un compte)">
+<button id="loginBtn">Se connecter</button>
+<button id="registerBtn" class="secondary">Créer un compte</button>
+<p id="authError" class="small"></p>
+</div>
+
+<div id="appPanel" class="hidden">
+<div class="panel">
+<p id="welcome"></p>
+<button id="logoutBtn" class="secondary">Déconnexion</button>
+</div>
+
+<div id="customerPanel" class="panel hidden">
+<h3>Contacter LN FUSION</h3>
+<p>Envoie ton message à notre équipe. Nous te répondrons ici.</p>
+<div id="customerMessages"></div>
+<div id="customerComposer">
+<textarea id="customerText" maxlength="1000" placeholder="Écris ton message..."></textarea>
+<button id="customerSend">Envoyer</button>
+</div>
+</div>
+
+<div id="adminPanel" class="panel hidden">
+<h3>Panneau administrateur</h3>
+<h4>Conversations clients</h4>
+<div id="chatList">Chargement des conversations...</div>
+<div id="adminConversation" class="hidden">
+<h4 id="chatTitle">Conversation</h4>
+<div id="adminMessages"></div>
+<textarea id="adminText" maxlength="1000" placeholder="Répondre au client..."></textarea>
+<button id="adminSend">Envoyer la réponse</button>
+</div>
+</div>
+</div>
+
+<p id="status"></p>
+</main>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyBiE8FpLUpQR_aJ5oDvI-UtH6QK0Q4FFI",
+  authDomain: "ln-fusion.firebaseapp.com",
+  projectId: "ln-fusion",
+  storageBucket: "ln-fusion.firebasestorage.app",
+  messagingSenderId: "169690519454",
+  appId: "1:169690519454:web:dea445b9052e52e657288f",
+  measurementId: "G-DQ6YV12G04"
+};
+
+const ADMIN_UID = "mIjEcibV09YQr8hofX0FNJJqp572";
+
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.firestore();
+
+const $ = id => document.getElementById(id);
+
+let currentUser = null;
+let selectedChat = null;
+let customerUnsubscribe = null;
+let adminListUnsubscribe = null;
+let adminMessagesUnsubscribe = null;
+
+function showStatus(message) {
+  $("status").textContent = message;
+}
+
+function showError(message) {
+  $("authError").textContent = message;
+}
+
+function stopListeners() {
+  if (customerUnsubscribe) customerUnsubscribe();
+  if (adminListUnsubscribe) adminListUnsubscribe();
+  if (adminMessagesUnsubscribe) adminMessagesUnsubscribe();
+
+  customerUnsubscribe = null;
+  adminListUnsubscribe = null;
+  adminMessagesUnsubscribe = null;
+}
+
+function showMessage(container, data, isMine) {
+  const item = document.createElement("div");
+  item.className = "message" + (isMine ? " mine" : "");
+
+  const sender = document.createElement("strong");
+  sender.textContent = isMine ? "Moi" : (data.senderEmail || "LN FUSION");
+
+  const content = document.createElement("div");
+  content.textContent = data.text || "";
+
+  item.appendChild(sender);
+  item.appendChild(content);
+  container.appendChild(item);
+}
+
+function listenToMessages(chatUid, container, composerButton, textarea) {
+  if (adminMessagesUnsubscribe) adminMessagesUnsubscribe();
+
+  const messagesRef = db.collection("chats")
+    .doc(chatUid)
+    .collection("messages")
+    .orderBy("createdAt", "asc");
+
+  adminMessagesUnsubscribe = messagesRef.onSnapshot(snapshot => {
+    container.innerHTML = "";
+
+    snapshot.forEach(doc => {
+      const data = doc.data();
+      showMessage(container, data, data.senderId === currentUser.uid);
+    });
+
+    container.scrollTop = container.scrollHeight;
+  }, error => {
+    showStatus("Erreur de chargement : " + error.message);
+  });
+}
+
+async function sendMessage(chatUid, textarea, button) {
+  const text = textarea.value.trim();
+
+  if (!text) return;
+  if (text.length > 1000) {
+    showStatus("Ton message est trop long.");
+    return;
+  }
+
+  button.disabled = true;
+
+  try {
+    const chatRef = db.collection("chats").doc(chatUid);
+    const chatSnap = await chatRef.get();
+
+    if (!chatSnap.exists && currentUser.uid !== ADMIN_UID) {
+      await chatRef.set({
+        ownerUid: currentUser.uid,
+        ownerEmail: currentUser.email || "",
+        ownerName: currentUser.displayName || "Client",
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        lastMessage: text,
+        updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+      });
+    } else {
+      await chatRef.set({
+        lastMessage: text,
+        updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+      }, {merge:true});
+    }
+
+    await chatRef.collection("messages").add({
+      text: text,
+      senderId: currentUser.uid,
+      senderEmail: currentUser.email || "",
+      createdAt: firebase.firestore.FieldValue.serverTimestamp()
+    });
+
+    textarea.value = "";
+    showStatus("Message envoyé !");
+  } catch (error) {
+    showStatus("Impossible d'envoyer le message : " + error.message);
+  } finally {
+    button.disabled = false;
+  }
+}
+
+$("loginBtn").addEventListener("click", async () => {
+  showError("");
+  try {
+    await auth.signInWithEmailAndPassword(
+      $("email").value.trim(),
+      $("password").value
+    );
+  } catch (error) {
+    showError("Connexion impossible : " + error.message);
+  }
+});
+
+$("registerBtn").addEventListener("click", async () => {
+  showError("");
+
+  const name = $("name").value.trim();
+  const email = $("email").value.trim();
+  const password = $("password").value;
+
+  if (!name) {
+    showError("Entre un pseudo ou un prénom.");
+    return;
+  }
+
+  try {
+    const result = await auth.createUserWithEmailAndPassword(email, password);
+    await result.user.updateProfile({displayName:name});
+  } catch (error) {
+    showError("Inscription impossible : " + error.message);
+  }
+});
+
+$("logoutBtn").addEventListener("click", () => auth.signOut());
+
+$("customerSend").addEventListener("click", () => {
+  if (currentUser) {
+    sendMessage(currentUser.uid, $("customerText"), $("customerSend"));
+  }
+});
+
+$("adminSend").addEventListener("click", () => {
+  if (currentUser && selectedChat) {
+    sendMessage(selectedChat, $("adminText"), $("adminSend"));
+  }
+});
+
+function openCustomer() {
+  $("customerPanel").classList.remove("hidden");
+  $("adminPanel").classList.add("hidden");
+
+  const container = $("customerMessages");
+
+  if (customerUnsubscribe) customerUnsubscribe();
+
+  const ref = db.collection("chats")
+    .doc(currentUser.uid)
+    .collection("messages")
+    .orderBy("createdAt", "asc");
+
+  customerUnsubscribe = ref.onSnapshot(snapshot => {
+    container.innerHTML = "";
+
+    snapshot.forEach(doc => {
+      const data = doc.data();
+      showMessage(container, data, data.senderId === currentUser.uid);
+    });
+
+    container.scrollTop = container.scrollHeight;
+  }, error => {
+    showStatus("Erreur : " + error.message);
+  });
+}
+
+function openAdmin() {
+  $("adminPanel").classList.remove("hidden");
+  $("customerPanel").classList.add("hidden");
+
+  adminListUnsubscribe = db.collection("chats")
+    .orderBy("updatedAt", "desc")
+    .onSnapshot(snapshot => {
+      const list = $("chatList");
+      list.innerHTML = "";
+
+      if (snapshot.empty) {
+        list.textContent = "Aucune conversation pour le moment.";
+        return;
+      }
+
+      snapshot.forEach(doc => {
+        const data = doc.data();
+        const button = document.createElement("button");
+
+        button.textContent =
+          (data.ownerName || "Client") + " — " +
+          (data.ownerEmail || "Sans adresse e-mail") +
+          " : " + (data.lastMessage || "");
+
+        button.addEventListener("click", () => {
+          selectedChat = doc.id;
+          $("adminConversation").classList.remove("hidden");
+          $("chatTitle").textContent =
+            "Discussion avec " + (data.ownerName || "Client");
+
+          listenToMessages(
+            selectedChat,
+            $("adminMessages"),
+            $("adminSend"),
+            $("adminText")
+          );
+        });
+
+        list.appendChild(button);
+      });
+    }, error => {
+      showStatus("Erreur dans les conversations : " + error.message);
+    });
+}
+
+auth.onAuthStateChanged(user => {
+  stopListeners();
+  currentUser = user;
+  selectedChat = null;
+
+  $("authPanel").classList.toggle("hidden", !!user);
+  $("appPanel").classList.toggle("hidden", !user);
+
+  if (!user) {
+    $("customerPanel").classList.add("hidden");
+    $("adminPanel").classList.add("hidden");
+    showStatus("");
+    return;
+  }
+
+  $("welcome").textContent =
+    "Connecté : " + (user.displayName || user.email);
+
+  if (user.uid === ADMIN_UID) {
+    openAdmin();
+    showStatus("Mode administrateur activé.");
+  } else {
+    openCustomer();
+    showStatus("Bienvenue dans la messagerie LN FUSION.");
+  }
+});
+</script>
+</body>
+</html>
+
