@@ -3,75 +3,151 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Messagerie - LN FUSION</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LN FUSION - Messagerie</title>
+
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#101014;color:white;font-family:Arial,sans-serif}
-header{padding:20px;background:#19191f;border-bottom:1px solid #333}
+body{
+ margin:0;
+ background:#101014;
+ color:white;
+ font-family:Arial,sans-serif;
+}
+header{
+ padding:18px;
+ background:#19191f;
+ border-bottom:1px solid #39313f;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+}
 header h2{margin:0;color:#c9a4ff}
-main{max-width:850px;margin:25px auto;padding:15px}
-.panel{background:#19191f;border:1px solid #333;border-radius:15px;padding:18px;margin-bottom:15px}
-input,textarea{width:100%;padding:13px;margin:7px 0;background:#101014;color:white;border:1px solid #444;border-radius:8px}
-button{padding:12px 16px;border:0;border-radius:8px;background:#b77aff;color:#160d20;font-weight:bold;cursor:pointer;margin:5px 3px}
-button.secondary{background:#38333f;color:white}
+main{max-width:850px;margin:25px auto;padding:12px}
+.panel{
+ background:#19191f;
+ border:1px solid #39313f;
+ border-radius:15px;
+ padding:18px;
+ margin-bottom:15px;
+}
+input,textarea{
+ width:100%;
+ padding:13px;
+ margin:7px 0;
+ background:#101014;
+ color:white;
+ border:1px solid #49404f;
+ border-radius:9px;
+ font-size:15px;
+}
+button{
+ padding:12px 16px;
+ border:0;
+ border-radius:9px;
+ background:#b77aff;
+ color:#160d20;
+ font-weight:bold;
+ cursor:pointer;
+ margin:5px 3px;
+}
+.secondary{background:#39313f;color:white}
 button:disabled{opacity:.5}
-#messages{height:380px;overflow-y:auto;background:#101014;border:1px solid #333;border-radius:10px;padding:12px}
-.message{padding:11px;margin:9px 0;border-radius:10px;background:#292431;max-width:85%;overflow-wrap:anywhere}
-.message.mine{margin-left:auto;background:#593b78}
-.small{font-size:12px;color:#bbb;margin-top:5px}
-#status{color:#c9a4ff;margin:10px 0}
-#chatList button{display:block;width:100%;text-align:left;background:#292431;color:white}
-.hidden{display:none}
+.hidden{display:none!important}
+#messages,#adminMessages{
+ height:350px;
+ overflow-y:auto;
+ padding:12px;
+ background:#101014;
+ border:1px solid #39313f;
+ border-radius:10px;
+}
+.message{
+ background:#292431;
+ padding:11px;
+ border-radius:10px;
+ margin:9px 0;
+ max-width:85%;
+ overflow-wrap:anywhere;
+}
+.message.mine{
+ margin-left:auto;
+ background:#593b78;
+}
+.sender{font-weight:bold;color:#d9bdff;font-size:13px}
+.small{font-size:12px;color:#aaa}
+#status{color:#c9a4ff}
+#chatList button{
+ display:block;
+ width:100%;
+ text-align:left;
+ background:#292431;
+ color:white;
+ margin:8px 0;
+}
 </style>
 </head>
+
 <body>
 
 <header>
-<h2>LN FUSION — Messagerie</h2>
+<h2>LN FUSION 💬</h2>
+<button class="secondary" onclick="location.href='index.html'">Boutique</button>
 </header>
 
 <main>
+
 <div class="panel" id="authPanel">
-<h3>Connexion</h3>
+<h3>Bienvenue sur la messagerie</h3>
+<p class="small">Connecte-toi pour contacter LN FUSION.</p>
+
 <input id="email" type="email" placeholder="Adresse e-mail">
 <input id="password" type="password" placeholder="Mot de passe">
-<input id="name" type="text" placeholder="Ton prénom ou pseudo (pour créer un compte)">
+<input id="pseudo" type="text" placeholder="Pseudo (pour inscription)">
+
 <button id="loginBtn">Se connecter</button>
 <button id="registerBtn" class="secondary">Créer un compte</button>
+
 <p id="authError" class="small"></p>
 </div>
 
 <div id="appPanel" class="hidden">
+
 <div class="panel">
 <p id="welcome"></p>
 <button id="logoutBtn" class="secondary">Déconnexion</button>
 </div>
 
-<div id="customerPanel" class="panel hidden">
+<div class="panel hidden" id="customerPanel">
 <h3>Contacter LN FUSION</h3>
-<p>Envoie ton message à notre équipe. Nous te répondrons ici.</p>
-<div id="customerMessages"></div>
-<div id="customerComposer">
-<textarea id="customerText" maxlength="1000" placeholder="Écris ton message..."></textarea>
+<div id="messages"></div>
+
+<textarea id="customerText" maxlength="1000"
+placeholder="Écris ton message..."></textarea>
+
 <button id="customerSend">Envoyer</button>
 </div>
-</div>
 
-<div id="adminPanel" class="panel hidden">
-<h3>Panneau administrateur</h3>
-<h4>Conversations clients</h4>
-<div id="chatList">Chargement des conversations...</div>
+<div class="panel hidden" id="adminPanel">
+<h3>Administration</h3>
+<h4>Conversations des clients</h4>
+<div id="chatList">Chargement...</div>
+
 <div id="adminConversation" class="hidden">
-<h4 id="chatTitle">Conversation</h4>
+<h4 id="chatTitle"></h4>
 <div id="adminMessages"></div>
-<textarea id="adminText" maxlength="1000" placeholder="Répondre au client..."></textarea>
+
+<textarea id="adminText" maxlength="1000"
+placeholder="Écrire une réponse..."></textarea>
+
 <button id="adminSend">Envoyer la réponse</button>
 </div>
 </div>
+
 </div>
 
 <p id="status"></p>
+
 </main>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
@@ -80,276 +156,236 @@ button:disabled{opacity:.5}
 
 <script>
 const firebaseConfig = {
-  apiKey: "AIzaSyBiE8FpLUpQR_aJ5oDvI-UtH6QK0Q4FFI",
-  authDomain: "ln-fusion.firebaseapp.com",
-  projectId: "ln-fusion",
-  storageBucket: "ln-fusion.firebasestorage.app",
-  messagingSenderId: "169690519454",
-  appId: "1:169690519454:web:dea445b9052e52e657288f",
-  measurementId: "G-DQ6YV12G04"
+ apiKey: "AIzaSyBiE8FpLUpQR_aJ5oDvI-UtH6QK0Q4FFI",
+ authDomain: "ln-fusion.firebaseapp.com",
+ projectId: "ln-fusion",
+ storageBucket: "ln-fusion.firebasestorage.app",
+ messagingSenderId: "169690519454",
+ appId: "1:169690519454:web:dea445b9052e52e657288f"
 };
 
 const ADMIN_UID = "mIjEcibV09YQr8hofX0FNJJqp572";
 
 firebase.initializeApp(firebaseConfig);
+
 const auth = firebase.auth();
 const db = firebase.firestore();
-
 const $ = id => document.getElementById(id);
 
-let currentUser = null;
+let user = null;
 let selectedChat = null;
-let customerUnsubscribe = null;
-let adminListUnsubscribe = null;
-let adminMessagesUnsubscribe = null;
+let customerListener = null;
+let adminListListener = null;
+let messageListener = null;
 
-function showStatus(message) {
-  $("status").textContent = message;
+function status(t){$("status").textContent=t}
+function error(t){$("authError").textContent=t}
+
+function stopListeners(){
+ if(customerListener) customerListener();
+ if(adminListListener) adminListListener();
+ if(messageListener) messageListener();
+
+ customerListener=null;
+ adminListListener=null;
+ messageListener=null;
 }
 
-function showError(message) {
-  $("authError").textContent = message;
+function displayMessages(snapshot, container){
+ container.innerHTML="";
+
+ snapshot.forEach(doc=>{
+  const data=doc.data();
+
+  const box=document.createElement("div");
+  box.className="message"+(data.senderId===user.uid?" mine":"");
+
+  const sender=document.createElement("div");
+  sender.className="sender";
+  sender.textContent=data.senderName||"Utilisateur";
+
+  const content=document.createElement("div");
+  content.textContent=data.text||"";
+
+  box.append(sender,content);
+  container.appendChild(box);
+ });
+
+ container.scrollTop=container.scrollHeight;
 }
 
-function stopListeners() {
-  if (customerUnsubscribe) customerUnsubscribe();
-  if (adminListUnsubscribe) adminListUnsubscribe();
-  if (adminMessagesUnsubscribe) adminMessagesUnsubscribe();
+function listenMessages(chatId, container){
+ if(messageListener) messageListener();
 
-  customerUnsubscribe = null;
-  adminListUnsubscribe = null;
-  adminMessagesUnsubscribe = null;
+ messageListener=db.collection("chats")
+ .doc(chatId).collection("messages")
+ .orderBy("createdAt","asc")
+ .onSnapshot(snapshot=>{
+  displayMessages(snapshot,container);
+ },e=>status("Erreur : "+e.message));
 }
 
-function showMessage(container, data, isMine) {
-  const item = document.createElement("div");
-  item.className = "message" + (isMine ? " mine" : "");
+async function sendMessage(chatId, textId, buttonId){
+ const message=$(textId).value.trim();
+ const button=$(buttonId);
 
-  const sender = document.createElement("strong");
-  sender.textContent = isMine ? "Moi" : (data.senderEmail || "LN FUSION");
+ if(!message)return;
 
-  const content = document.createElement("div");
-  content.textContent = data.text || "";
+ button.disabled=true;
 
-  item.appendChild(sender);
-  item.appendChild(content);
-  container.appendChild(item);
-}
+ try{
+  const chatRef=db.collection("chats").doc(chatId);
+  const chatSnap=await chatRef.get();
 
-function listenToMessages(chatUid, container, composerButton, textarea) {
-  if (adminMessagesUnsubscribe) adminMessagesUnsubscribe();
+  if(user.uid!==ADMIN_UID&&!chatSnap.exists){
+   await chatRef.set({
+    ownerUid:user.uid,
+    ownerEmail:user.email||"",
+    ownerName:user.displayName||"Client",
+    createdAt:firebase.firestore.FieldValue.serverTimestamp(),
+    lastMessage:message,
+    updatedAt:firebase.firestore.FieldValue.serverTimestamp()
+   });
+  }else{
+   await chatRef.set({
+    lastMessage:message,
+    updatedAt:firebase.firestore.FieldValue.serverTimestamp()
+   },{merge:true});
+  }
 
-  const messagesRef = db.collection("chats")
-    .doc(chatUid)
-    .collection("messages")
-    .orderBy("createdAt", "asc");
-
-  adminMessagesUnsubscribe = messagesRef.onSnapshot(snapshot => {
-    container.innerHTML = "";
-
-    snapshot.forEach(doc => {
-      const data = doc.data();
-      showMessage(container, data, data.senderId === currentUser.uid);
-    });
-
-    container.scrollTop = container.scrollHeight;
-  }, error => {
-    showStatus("Erreur de chargement : " + error.message);
+  await chatRef.collection("messages").add({
+   text:message,
+   senderId:user.uid,
+   senderName:user.displayName||user.email||"Utilisateur",
+   createdAt:firebase.firestore.FieldValue.serverTimestamp()
   });
+
+  $(textId).value="";
+  status("Message envoyé !");
+ }catch(e){
+  status("Erreur d'envoi : "+e.message);
+ }finally{
+  button.disabled=false;
+ }
 }
 
-async function sendMessage(chatUid, textarea, button) {
-  const text = textarea.value.trim();
+$("loginBtn").onclick=async()=>{
+ error("");
+ try{
+  await auth.signInWithEmailAndPassword(
+   $("email").value.trim(),
+   $("password").value
+  );
+ }catch(e){error(e.message)}
+};
 
-  if (!text) return;
-  if (text.length > 1000) {
-    showStatus("Ton message est trop long.");
-    return;
-  }
+$("registerBtn").onclick=async()=>{
+ error("");
 
-  button.disabled = true;
+ const pseudo=$("pseudo").value.trim();
+ const email=$("email").value.trim();
+ const password=$("password").value;
 
-  try {
-    const chatRef = db.collection("chats").doc(chatUid);
-    const chatSnap = await chatRef.get();
+ if(!pseudo){
+  error("Entre un pseudo.");
+  return;
+ }
 
-    if (!chatSnap.exists && currentUser.uid !== ADMIN_UID) {
-      await chatRef.set({
-        ownerUid: currentUser.uid,
-        ownerEmail: currentUser.email || "",
-        ownerName: currentUser.displayName || "Client",
-        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-        lastMessage: text,
-        updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-      });
-    } else {
-      await chatRef.set({
-        lastMessage: text,
-        updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-      }, {merge:true});
-    }
+ if(password.length<6){
+  error("Le mot de passe doit contenir au moins 6 caractères.");
+  return;
+ }
 
-    await chatRef.collection("messages").add({
-      text: text,
-      senderId: currentUser.uid,
-      senderEmail: currentUser.email || "",
-      createdAt: firebase.firestore.FieldValue.serverTimestamp()
-    });
+ try{
+  const result=await auth.createUserWithEmailAndPassword(email,password);
+  await result.user.updateProfile({displayName:pseudo});
+ }catch(e){error(e.message)}
+};
 
-    textarea.value = "";
-    showStatus("Message envoyé !");
-  } catch (error) {
-    showStatus("Impossible d'envoyer le message : " + error.message);
-  } finally {
-    button.disabled = false;
-  }
+$("logoutBtn").onclick=()=>auth.signOut();
+
+$("customerSend").onclick=()=>{
+ if(user)sendMessage(user.uid,"customerText","customerSend");
+};
+
+$("adminSend").onclick=()=>{
+ if(user&&selectedChat){
+  sendMessage(selectedChat,"adminText","adminSend");
+ }
+};
+
+function openCustomer(){
+ $("customerPanel").classList.remove("hidden");
+ $("adminPanel").classList.add("hidden");
+
+ customerListener=db.collection("chats")
+ .doc(user.uid).collection("messages")
+ .orderBy("createdAt","asc")
+ .onSnapshot(snapshot=>{
+  displayMessages(snapshot,$("messages"));
+ },e=>status("Erreur : "+e.message));
 }
 
-$("loginBtn").addEventListener("click", async () => {
-  showError("");
-  try {
-    await auth.signInWithEmailAndPassword(
-      $("email").value.trim(),
-      $("password").value
-    );
-  } catch (error) {
-    showError("Connexion impossible : " + error.message);
-  }
-});
+function openAdmin(){
+ $("adminPanel").classList.remove("hidden");
+ $("customerPanel").classList.add("hidden");
 
-$("registerBtn").addEventListener("click", async () => {
-  showError("");
+ adminListListener=db.collection("chats")
+ .orderBy("updatedAt","desc")
+ .onSnapshot(snapshot=>{
+  const list=$("chatList");
+  list.innerHTML="";
 
-  const name = $("name").value.trim();
-  const email = $("email").value.trim();
-  const password = $("password").value;
-
-  if (!name) {
-    showError("Entre un pseudo ou un prénom.");
-    return;
+  if(snapshot.empty){
+   list.textContent="Aucune conversation.";
+   return;
   }
 
-  try {
-    const result = await auth.createUserWithEmailAndPassword(email, password);
-    await result.user.updateProfile({displayName:name});
-  } catch (error) {
-    showError("Inscription impossible : " + error.message);
-  }
-});
+  snapshot.forEach(doc=>{
+   const data=doc.data();
+   const btn=document.createElement("button");
 
-$("logoutBtn").addEventListener("click", () => auth.signOut());
+   btn.textContent=(data.ownerName||"Client")+" — "+
+   (data.ownerEmail||"")+" : "+(data.lastMessage||"");
 
-$("customerSend").addEventListener("click", () => {
-  if (currentUser) {
-    sendMessage(currentUser.uid, $("customerText"), $("customerSend"));
-  }
-});
+   btn.onclick=()=>{
+    selectedChat=doc.id;
+    $("adminConversation").classList.remove("hidden");
+    $("chatTitle").textContent="Discussion avec "+(data.ownerName||"Client");
+    listenMessages(selectedChat,$("adminMessages"));
+   };
 
-$("adminSend").addEventListener("click", () => {
-  if (currentUser && selectedChat) {
-    sendMessage(selectedChat, $("adminText"), $("adminSend"));
-  }
-});
-
-function openCustomer() {
-  $("customerPanel").classList.remove("hidden");
-  $("adminPanel").classList.add("hidden");
-
-  const container = $("customerMessages");
-
-  if (customerUnsubscribe) customerUnsubscribe();
-
-  const ref = db.collection("chats")
-    .doc(currentUser.uid)
-    .collection("messages")
-    .orderBy("createdAt", "asc");
-
-  customerUnsubscribe = ref.onSnapshot(snapshot => {
-    container.innerHTML = "";
-
-    snapshot.forEach(doc => {
-      const data = doc.data();
-      showMessage(container, data, data.senderId === currentUser.uid);
-    });
-
-    container.scrollTop = container.scrollHeight;
-  }, error => {
-    showStatus("Erreur : " + error.message);
+   list.appendChild(btn);
   });
+ },e=>status("Erreur admin : "+e.message));
 }
 
-function openAdmin() {
-  $("adminPanel").classList.remove("hidden");
+auth.onAuthStateChanged(u=>{
+ stopListeners();
+ user=u;
+ selectedChat=null;
+
+ $("authPanel").classList.toggle("hidden",!!u);
+ $("appPanel").classList.toggle("hidden",!u);
+
+ if(!u){
   $("customerPanel").classList.add("hidden");
+  $("adminPanel").classList.add("hidden");
+  status("");
+  return;
+ }
 
-  adminListUnsubscribe = db.collection("chats")
-    .orderBy("updatedAt", "desc")
-    .onSnapshot(snapshot => {
-      const list = $("chatList");
-      list.innerHTML = "";
+ $("welcome").textContent="Connecté : "+(u.displayName||u.email);
 
-      if (snapshot.empty) {
-        list.textContent = "Aucune conversation pour le moment.";
-        return;
-      }
-
-      snapshot.forEach(doc => {
-        const data = doc.data();
-        const button = document.createElement("button");
-
-        button.textContent =
-          (data.ownerName || "Client") + " — " +
-          (data.ownerEmail || "Sans adresse e-mail") +
-          " : " + (data.lastMessage || "");
-
-        button.addEventListener("click", () => {
-          selectedChat = doc.id;
-          $("adminConversation").classList.remove("hidden");
-          $("chatTitle").textContent =
-            "Discussion avec " + (data.ownerName || "Client");
-
-          listenToMessages(
-            selectedChat,
-            $("adminMessages"),
-            $("adminSend"),
-            $("adminText")
-          );
-        });
-
-        list.appendChild(button);
-      });
-    }, error => {
-      showStatus("Erreur dans les conversations : " + error.message);
-    });
-}
-
-auth.onAuthStateChanged(user => {
-  stopListeners();
-  currentUser = user;
-  selectedChat = null;
-
-  $("authPanel").classList.toggle("hidden", !!user);
-  $("appPanel").classList.toggle("hidden", !user);
-
-  if (!user) {
-    $("customerPanel").classList.add("hidden");
-    $("adminPanel").classList.add("hidden");
-    showStatus("");
-    return;
-  }
-
-  $("welcome").textContent =
-    "Connecté : " + (user.displayName || user.email);
-
-  if (user.uid === ADMIN_UID) {
-    openAdmin();
-    showStatus("Mode administrateur activé.");
-  } else {
-    openCustomer();
-    showStatus("Bienvenue dans la messagerie LN FUSION.");
-  }
+ if(u.uid===ADMIN_UID){
+  openAdmin();
+  status("Mode administrateur activé.");
+ }else{
+  openCustomer();
+  status("Bienvenue dans LN FUSION !");
+ }
 });
 </script>
+
 </body>
 </html>
-
